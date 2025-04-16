@@ -76,6 +76,17 @@ public class UserService {
 
         return Optional.of(users.get(0));
     }
+    // Add this method to the existing UserService class
+
+    public boolean validateUserCredentials(String username, String password) {
+        Optional<User> userOpt = findByUsername(username);
+        if (userOpt.isEmpty()) {
+            return false;
+        }
+
+        User user = userOpt.get();
+        return passwordEncoder.matches(password, user.getPassword());
+    }
 
     public Optional<User> findById(Long id) {
         List<User> users = jdbcTemplate.query(
