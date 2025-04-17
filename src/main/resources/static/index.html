@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TinyURL Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>TinyURL Clone</h1>
+        <nav>
+            <ul id="navItems">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="login.html" id="loginLink">Login</a></li>
+                <li><a href="register.html" id="registerLink">Register</a></li>
+                <li><a href="my-urls.html" id="myUrlsLink" style="display:none;">My URLs</a></li>
+                <li><a href="#" id="logoutLink" style="display:none;">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="url-shortener">
+            <h2>Shorten Your URL</h2>
+            <form id="urlShortenForm">
+                <div class="form-group">
+                    <label for="originalUrl">URL to Shorten:</label>
+                    <input type="url" id="originalUrl" name="originalUrl" required placeholder="https://example.com/long-url-to-shorten">
+                </div>
+
+                <div id="customCodeSection" style="display:none;">
+                    <div class="form-group">
+                        <label for="customCode">Custom Short Code (optional):</label>
+                        <input type="text" id="customCode" name="customCode" placeholder="yourcode">
+                        <p class="info">Custom codes are only available for registered users</p>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn primary">Shorten URL</button>
+            </form>
+        </section>
+
+        <section id="resultSection" class="result-section" style="display:none;">
+            <h3>Your Shortened URL</h3>
+            <div class="result-container">
+                <p>Original URL: <span id="originalUrlDisplay"></span></p>
+                <div class="shortened-url-container">
+                    <p>Shortened URL: <a id="shortenedUrlLink" href="#" target="_blank"></a></p>
+                    <button id="copyButton" class="btn secondary">Copy</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TinyURL Clone</p>
+    </footer>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>

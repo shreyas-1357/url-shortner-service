@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My URLs - TinyURL Clone</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>TinyURL Clone</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="my-urls.html" class="active">My URLs</a></li>
+                <li><a href="#" id="logoutLink">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="my-urls">
+            <h2>My Shortened URLs</h2>
+            <div id="urlsLoading" class="loading">Loading your URLs...</div>
+            <div id="noUrlsMessage" style="display:none;">
+                <p>You haven't created any shortened URLs yet.</p>
+                <a href="index.html" class="btn primary">Create One Now</a>
+            </div>
+            <div class="urls-table-container">
+                <table id="urlsTable" style="display:none;">
+                    <thead>
+                    <tr>
+                        <th>Original URL</th>
+                        <th>Short URL</th>
+                        <th>Created Date</th>
+                        <th>Clicks</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody id="urlsTableBody">
+                    <!-- URL entries will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 TinyURL Clone</p>
+    </footer>
+</div>
+
+<script src="scripts.js"></script>
+</body>
+</html>
