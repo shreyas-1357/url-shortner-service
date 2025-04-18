@@ -18,7 +18,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Log in to DockerHub (manual)
-        run: echo "${{ secrets.DOCKER_TOKEN }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+        run: echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
 
       - name: Verify schema.sql exists
         run: ls -l ./src/main/resources/schema.sql
@@ -29,9 +29,9 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/url-shortener:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/url-shortener:latest
 
       - name: Verify build output (for debug purposes)
         run: |
           echo "Listing build output files inside the container..."
-          docker run --rm --entrypoint "" ${{ secrets.DOCKER_USERNAME }}/url-shortener:latest ls -l /app
+          docker run --rm --entrypoint "" ${{ secrets.DOCKERHUB_USERNAME }}/url-shortener:latest ls -l /app
